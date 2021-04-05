@@ -15,6 +15,6 @@
 
 @media (min-width: 720px) {
   .container {
-    padding: 200px;
+    padding: 100px 200px;
   }
 }

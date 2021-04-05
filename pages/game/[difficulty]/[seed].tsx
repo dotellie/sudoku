@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import type { ReactElement } from "react";
 
@@ -14,7 +15,8 @@ export default function GamePage(): ReactElement | null {
     return <ErrorLayout>An unknown error occurred</ErrorLayout>;
   }
 
-  const readableDifficulty = difficulty[0].toUpperCase() + difficulty.slice(1);
+  const readableDifficulty =
+    (difficulty[0]?.toUpperCase() ?? "") + difficulty.slice(1);
 
   if (
     difficulty !== "easy" &&
@@ -31,6 +33,8 @@ export default function GamePage(): ReactElement | null {
   return (
     <MainLayout title={`${readableDifficulty} game`}>
       <SudokuGame difficulty={difficulty} seed={seed} />
+      <br />
+      <Link href="/">Back to main menu</Link>
     </MainLayout>
   );
 }

@@ -40,11 +40,15 @@ export default function SudokuGame({
   );
 
   return (
-    <SudokuBoard
-      staticIndices={staticIndices}
-      values={values}
-      correctValues={correctValues}
-      onValueChange={handleValueChange}
-    />
+    <>
+      <SudokuBoard
+        staticIndices={staticIndices}
+        values={values}
+        correctValues={correctValues}
+        onValueChange={handleValueChange}
+      />
+      <br />
+      <button onClick={() => setValues(correctValues)}>I give up</button>
+    </>
   );
 }
