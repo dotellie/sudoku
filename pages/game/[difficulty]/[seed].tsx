@@ -30,11 +30,32 @@ export default function GamePage(): ReactElement | null {
     );
   }
 
+  const shareButton =
+    "share" in navigator ? (
+      <>
+        <br />
+        <button
+          onClick={() =>
+            void navigator
+              .share({
+                title: "Sudoku",
+                text: `Check out this ${difficulty} sudoku board!`,
+                url: location.href,
+              })
+              .catch(async () => Promise.resolve())
+          }
+        >
+          Share this board
+        </button>
+      </>
+    ) : null;
+
   return (
     <MainLayout title={`${readableDifficulty} game`}>
       <SudokuGame difficulty={difficulty} seed={seed} />
       <br />
       <Link href="/">Back to main menu</Link>
+      {shareButton}
     </MainLayout>
   );
 }
