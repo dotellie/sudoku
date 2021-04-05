@@ -34,7 +34,7 @@ function positionToIndex(x: number, y: number): number {
 function checkSquare(
   values: Array<number | null>,
   index: number,
-  number: number,
+  number: number
 ): boolean {
   const [indexX, indexY] = indexToPosition(index);
 
