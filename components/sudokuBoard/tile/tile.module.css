@@ -6,6 +6,7 @@
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0;
+  -webkit-appearance: none;
 }
 
 .inputInvalid {
@@ -20,4 +21,5 @@
 .input:disabled {
   background: rgba(0, 0, 0, 0.2);
   color: black;
+  opacity: 1;
 }

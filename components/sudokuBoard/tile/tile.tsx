@@ -24,6 +24,8 @@ export default function Tile({
   return (
     <input
       className={clsx(styles.input, !valid && styles.inputInvalid)}
+      inputMode="numeric"
+      pattern="[0-9]*"
       disabled={staticTile}
       value={currentValue ?? ""}
       onChange={(e) => {
