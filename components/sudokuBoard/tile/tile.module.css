@@ -1,0 +1,16 @@
+.input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: large;
+  outline: none;
+}
+
+.input:focus {
+  background: rgba(0, 255, 174, 0.214);
+}
+
+.input:disabled {
+  background: rgba(0, 0, 0, 0.2);
+  color: black;
+}
