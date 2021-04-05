@@ -40,7 +40,9 @@ export default function Tile({
       onBlur={() => onChange(currentValue)}
       onKeyUp={(e) => {
         if (e.key === "Enter") {
-          document.body.focus();
+          if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+          }
         }
       }}
     />
