@@ -39,6 +39,10 @@ export default function SudokuGame({
     []
   );
 
+  const solved = useMemo(() => {
+    return correctValues.every((v, index) => values[index] === v);
+  }, [correctValues, values]);
+
   return (
     <>
       <SudokuBoard
@@ -48,6 +52,12 @@ export default function SudokuGame({
         onValueChange={handleValueChange}
       />
       <br />
+      {solved && (
+        <>
+          <p>🎉 Congratulations, you solved the puzzle! 🎉</p>
+          <br />
+        </>
+      )}
       <button onClick={() => setValues(correctValues)}>I give up</button>
     </>
   );
