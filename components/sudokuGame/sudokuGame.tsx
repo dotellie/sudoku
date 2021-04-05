@@ -43,6 +43,7 @@ export default function SudokuGame({
     <SudokuBoard
       staticIndices={staticIndices}
       values={values}
+      correctValues={correctValues}
       onValueChange={handleValueChange}
     />
   );

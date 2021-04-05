@@ -7,10 +7,12 @@ import Tile from "./tile/tile";
 export default function SudokuBoard({
   staticIndices,
   values,
+  correctValues,
   onValueChange,
 }: {
   staticIndices: number[];
   values: Array<number | null>;
+  correctValues: number[];
   onValueChange: (index: number, newValue: number | null) => void;
 }): ReactElement {
   const tileIndices = useMemo(
@@ -31,14 +33,25 @@ export default function SudokuBoard({
         <span className={styles.horizontalLines} />
         <span className={styles.verticalLines} />
       </div>
-      {tileIndices.map((index) => (
-        <Tile
-          key={index}
-          staticTile={staticIndicesSet.has(index)}
-          value={values[index] ?? null}
-          onChange={(newValue) => onValueChange(index, newValue)}
-        />
-      ))}
+      {tileIndices.map((index) => {
+        const value = values[index] ?? null;
+        const correctValue = correctValues[index];
+
+        const valid =
+          typeof correctValue === "number"
+            ? value === null || correctValue === value
+            : true;
+
+        return (
+          <Tile
+            key={index}
+            staticTile={staticIndicesSet.has(index)}
+            value={value}
+            valid={valid}
+            onChange={(newValue) => onValueChange(index, newValue)}
+          />
+        );
+      })}
     </div>
   );
 }

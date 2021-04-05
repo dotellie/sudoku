@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
 
@@ -6,11 +7,13 @@ import styles from "./tile.module.css";
 export default function Tile({
   value,
   onChange,
-  staticTile,
+  staticTile = false,
+  valid = true,
 }: {
   value: number | null;
   onChange: (newValue: number | null) => void;
-  staticTile: boolean;
+  staticTile?: boolean;
+  valid?: boolean;
 }): ReactElement {
   const [currentValue, setCurrentValue] = useState(value);
 
@@ -20,7 +23,7 @@ export default function Tile({
 
   return (
     <input
-      className={styles.input}
+      className={clsx(styles.input, !valid && styles.inputInvalid)}
       disabled={staticTile}
       value={currentValue ?? ""}
       onChange={(e) => {

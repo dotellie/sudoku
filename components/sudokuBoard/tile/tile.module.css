@@ -8,6 +8,10 @@
   border-radius: 0;
 }
 
+.inputInvalid {
+  background: rgba(255, 0, 47, 0.214);
+}
+
 .input:focus {
   background: rgba(0, 255, 174, 0.214);
   border: unset;
