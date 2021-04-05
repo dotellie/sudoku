@@ -22,7 +22,7 @@ export default function Tile({
     <input
       className={styles.input}
       disabled={staticTile}
-      value={currentValue ?? undefined}
+      value={currentValue ?? ""}
       onChange={(e) => {
         const value = e.currentTarget.value;
         const numberValue = Number(value);

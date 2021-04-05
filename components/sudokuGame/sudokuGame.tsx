@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { useMemo } from "react";
+import { useCallback, useState, useMemo } from "react";
 
 import SudokuBoard from "../sudokuBoard/sudokuBoard";
 
@@ -23,11 +23,27 @@ export default function SudokuGame({
     [difficulty, seed]
   );
 
+  const [values, setValues] = useState(defaultValues);
+  const handleValueChange = useCallback(
+    (index: number, newValue: number | null) => {
+      setValues((values) =>
+        values.map((v, i) => {
+          if (index === i) {
+            return newValue;
+          } else {
+            return v;
+          }
+        })
+      );
+    },
+    []
+  );
+
   return (
     <SudokuBoard
       staticIndices={staticIndices}
-      values={defaultValues}
-      onValueChange={() => {}}
+      values={values}
+      onValueChange={handleValueChange}
     />
   );
 }
