@@ -45,7 +45,7 @@ export default function generateBoard(
   staticIndices: number[];
   correctValues: number[];
 } {
-  const rng = seedrandom(seed);
+  const rng = seedrandom(`${seed}-${predefinedNumbers}`);
 
   const board = Array(maxIndex)
     .fill(null)
