@@ -4,10 +4,13 @@
   text-align: center;
   font-size: large;
   outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0;
 }
 
 .input:focus {
   background: rgba(0, 255, 174, 0.214);
+  border: unset;
 }
 
 .input:disabled {
